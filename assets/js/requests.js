@@ -16,7 +16,10 @@ const get = async (endpoint) => {
         method: 'GET',
         headers: headers
     });
-    return response.json();
+    return {
+        status: response.status,
+        data: await response.json()
+    };
 }
 
 const post = async (endpoint, data) => {
@@ -27,7 +30,10 @@ const post = async (endpoint, data) => {
         headers: headers,
         body: JSON.stringify(data)
     });
-    return response.json();
+    return {
+        status: response.status,
+        data: await response.json()
+    };
 }
 
 const put = async (endpoint, data) => {
@@ -37,7 +43,10 @@ const put = async (endpoint, data) => {
         headers: headers,
         body: JSON.stringify(data)
     });
-    return response.json();
+    return {
+        status: response.status,
+        data: await response.json()
+    }
 }
 
 const remove = async (endpoint) => {
@@ -46,5 +55,8 @@ const remove = async (endpoint) => {
         method: 'DELETE',
         headers: headers
     });
-    return response.json();
+    return {
+        status: response.status,
+        data: await response.json()
+    };
 }

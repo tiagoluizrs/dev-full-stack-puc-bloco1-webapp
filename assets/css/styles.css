@@ -1,0 +1,12 @@
+/*Padrão de escrita de CSS - BEM CSS (Block Element Modifier)*/
+/*https://en.bem.info/methodology/css/*/
+
+.col__box--white {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.col__auth-link{
+    display: block;
+    width: 100%;
+    padding: 1em 0;
+}

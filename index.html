@@ -22,91 +22,9 @@
 <body>
 <!-- SPA without framework -->
 <div id="app">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="menu">
-        <div class="container-fluid">
-            <button
-                    data-mdb-collapse-init
-                    class="navbar-toggler"
-                    type="button"
-                    data-mdb-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-            >
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img
-                            src="./assets/images/logo.png"
-                            height="32"
-                            alt="Site Logo"
-                            loading="lazy"
-                    />
-                </a>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Series</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="d-flex align-items-center">
-                <div class="dropdown">
-                    <a
-                            data-mdb-dropdown-init
-                            class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                            role="button"
-                    >
-                        <img
-                                src="./assets/images/profile.jpg"
-                                class="rounded-circle"
-                                height="25"
-                                alt="Black and White Portrait of a Man"
-                                loading="lazy"
-                        />
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                        <li>
-                            <a class="dropdown-item" href="#">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Digite seu login para acessar ou realize um cadastro</h5>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">Insira um e-mail</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Senha</label>
-                            <input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
-                            <div id="passwordHelp" class="form-text">Insira uma senha</div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Cadastrar</button>
-                    <button type="button" class="btn btn-primary" data-mdb-ripple-init>Entrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="home-component"></div>
+    <div id="login-component"></div>
+    <div id="register-component"></div>
 </div>
 
 <script type="text/javascript" src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
