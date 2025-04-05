@@ -13,10 +13,11 @@ const prepareRegisterPage = () => {
     loginComponent.innerHTML = '';
     registerComponent.innerHTML = registerComponentHtml;
 }
-const prepareDashboardPage = () => {
+const prepareDashboardPage = async () => {
     homeComponent.innerHTML = homeComponentHtml;
     loginComponent.innerHTML = '';
     registerComponent.innerHTML = '';
+    await loadData(1);
 }
 
 const changeComponentPage = (hashtagInRoute) => {

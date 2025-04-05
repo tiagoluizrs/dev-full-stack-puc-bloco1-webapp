@@ -1,4 +1,4 @@
-const url = 'http://127.0.0.1:5000/';
+const url = 'http://127.0.0.1:5000/api/';
 
 const getHeaders = (endpoint) => {
     const headers = {
@@ -29,31 +29,6 @@ const post = async (endpoint, data) => {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(data)
-    });
-    return {
-        status: response.status,
-        data: await response.json()
-    };
-}
-
-const put = async (endpoint, data) => {
-    const headers = getHeaders(endpoint);
-    const response = await fetch(url + endpoint, {
-        method: 'PUT',
-        headers: headers,
-        body: JSON.stringify(data)
-    });
-    return {
-        status: response.status,
-        data: await response.json()
-    }
-}
-
-const remove = async (endpoint) => {
-    const headers = getHeaders(endpoint);
-    const response = await fetch(url + endpoint, {
-        method: 'DELETE',
-        headers: headers
     });
     return {
         status: response.status,

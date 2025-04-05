@@ -1,5 +1,26 @@
 const isLoggedIn = () => {
-    return localStorage.getItem('token') !== null;
+    const token = localStorage.getItem('token');
+    if (token) {
+        const payload = token.split('.')[1];
+        const decodedPayload = JSON.parse(atob(payload));
+        const expirationDate = new Date(decodedPayload.exp * 1000);
+        if (expirationDate > new Date()) {
+            return true;
+        } else {
+            localStorage.removeItem('token');
+            return false;
+        }
+    }
+    return ;
+}
+
+const getUser = () => {
+    const user = localStorage.getItem('user');
+    if (user) {
+        return JSON.parse(user);
+    }
+    return null;
+
 }
 
 const loginEvent = async () => {
@@ -12,6 +33,7 @@ const loginEvent = async () => {
         if(response.status === 200) {
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
                 window.location.href = '#dashboard';
                 prepareDashboardPage();
             } else {
