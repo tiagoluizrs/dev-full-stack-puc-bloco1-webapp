@@ -178,16 +178,43 @@ const generateDataForm = async () => {
     const imageInput = document.getElementById('image').files[0];
 
     if (imageInput) {
-        console.log(imageInput);
         data.image = await convertImageToBase64(imageInput);
     }
     console.log(data)
     return data;
 }
 
+const verifyFieldsFilled = () => {
+
+    const title = document.getElementById('title').value;
+    const synopsis = document.getElementById('synopsis').value;
+    const classification = document.getElementById('classification').value;
+    const release_date = document.getElementById('release_date').value;
+    const director = document.getElementById('director').value;
+    const genre = document.getElementById('genre').value;
+    const type = document.getElementById('type').value;
+    const image = document.getElementById('image').files;
+
+    if (type == 1) {
+        const duration = document.getElementById('duration').value;
+        return title && synopsis && classification && release_date && director && genre && type && duration && image.length > 0;
+    } else {
+        const chapters = document.getElementById('chapters').value;
+        const seasons = document.getElementById('seasons').value;
+        return title && synopsis && classification && release_date && director && genre && type && chapters && image.length > 0 && seasons;
+    }
+}
+
 const saveMovieSerie = async () => {
-    const data = await generateDataForm();
     const messageAreaComponent = document.getElementById('message-area');
+    messageAreaComponent.innerHTML = '';
+    const verify = verifyFieldsFilled();
+
+    if (!verify) {
+        messageAreaComponent.innerHTML = '<div class="alert alert-danger" role="alert">Todos os campos são obrigatórios.</div>';
+        return;
+    }
+    const data = await generateDataForm();
 
     try {
         const response = await post("movie-serie", data);
